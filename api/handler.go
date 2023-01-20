@@ -1,10 +1,12 @@
 package api
 
 import (
-	"encoding/json"
 	"github.com/FaridehGhani/prancer_test/deliverpoint/application"
 	"github.com/FaridehGhani/prancer_test/deliverpoint/delivery"
+
 	"github.com/gin-gonic/gin"
+
+	"encoding/json"
 	"io/ioutil"
 	"log"
 	"net/http"

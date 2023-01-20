@@ -1,7 +1,6 @@
 package delivery
 
 import (
-	"fmt"
 	"log"
 	"math"
 	"sync"
@@ -53,7 +52,6 @@ func AccessAgent(wg *sync.WaitGroup, agents []*Agent, point Location) {
 			go func(a Agent) {
 				defer wg.Done()
 				distance := a.DistanceToPoint(point)
-				fmt.Printf("distance %v\n", distance)
 				if minDistanceAgentToPoint > distance {
 					minDistanceAgentToPoint = distance
 					minDistanceAgent = a
@@ -61,8 +59,8 @@ func AccessAgent(wg *sync.WaitGroup, agents []*Agent, point Location) {
 			}(agent)
 		}
 		wg.Wait()
-		fmt.Printf("selected agent %v\n", minDistanceAgent)
 
+		log.Printf("selected agent %v\n", minDistanceAgent)
 		minDistanceAgent.ProcessPoint(point)
 	} else {
 		// TODO: implement queue for not processed points

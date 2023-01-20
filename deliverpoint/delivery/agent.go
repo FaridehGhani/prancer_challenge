@@ -1,7 +1,6 @@
 package delivery
 
 import (
-	"fmt"
 	"log"
 	"math"
 	"time"
@@ -31,7 +30,6 @@ func (a *Agent) DistanceToPoint(location Location) float64 {
 }
 
 func (a *Agent) IsAvailable() bool {
-	fmt.Println("agent status ", a.ID, a.Status)
 	if a.Status == AgentStatusAvailable {
 		return true
 	}
